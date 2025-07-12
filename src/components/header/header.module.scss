@@ -5,7 +5,8 @@
   padding: 1.5rem 2rem;
   background: #18181b;
   color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  position: relative;
 }
 
 .logo {
@@ -18,6 +19,7 @@
 .nav {
   display: flex;
   gap: 2rem;
+  transition: right 0.3s;
 }
 
 .link {
@@ -30,5 +32,46 @@
   &:focus {
     color: #38bdf8;
     outline: none;
+  }
+}
+
+.menuButton {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 20;
+}
+
+.menuIcon {
+  width: 28px;
+  height: 28px;
+  display: block;
+  fill: #fff;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    gap: 1.5rem;
+    position: absolute;
+    top: 100%;
+    right: -100vw;
+    background: #0a0a0a;
+    width: 100vw;
+    padding: 2rem 0;
+    border-radius: 1rem;
+    border: 1px solid #333333;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    align-items: center;
+    transition: right 0.3s;
+    z-index: 100;
+  }
+  .nav.open {
+    right: 0;
+  }
+  .menuButton {
+    display: block;
   }
 }
